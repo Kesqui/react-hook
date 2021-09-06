@@ -35,7 +35,7 @@ export default function Hookusestate() {
         cleanall()
     }
     const cleanall = () => {
-        setFill({ ...initialState })
+        setFill({ initialState })
     }
 
 

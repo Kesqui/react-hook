@@ -9,20 +9,20 @@ export default function Hookuseref(){
 
     useEffect(()=>{
         prevName.current=accountName
-    },[accountName])
+    },[])
 
-    const changeAccount=(event)=>(
+    const changeAccount=(event)=>{
         
         setAccountName(event.target.value)
-    )
-
-    const onChangee=(e)=>(
-        setAccountName(e.target.value)
-    )
+    }
+    const onChangee=(e)=>{
+        accountName:
+        console.log(e.target.value)
+    } 
     return(
         <div>
-            <input type='text' />
-            <button onClick={changeAccount}>Change it</button>
+            <input type='text' onChange={changeAccount} />
+            <button onClick={onChangee}>Change it</button>
             <p>Current account name: {accountName}</p>
             <p>Previus account name: {prevName.current}</p>
         </div>
