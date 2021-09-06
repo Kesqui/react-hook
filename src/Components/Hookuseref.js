@@ -2,23 +2,30 @@ import React,{useState,useRef,useEffect} from 'react'
 
 export default function Hookuseref(){
 
-    const[name,setName]=useState('')
-    const prevName= useRef('')
+    const [accountName,setAccountName]=useState(
+        'Kesqui07'
+    )
+    const prevName=useRef('')
 
     useEffect(()=>{
-        prevName.current=name
-    },[name])
-    const handleChange=(e)=>{
-        e.preventDefault();
-        setName(e.target.value
-        )
+        prevName.current=accountName
+    },[accountName])
 
-    }
-
-    return(
-        <>
-            <input type='text' onChange={handleChange} name='this'/>
-            <h2>My name is {name} and my previus name is {prevName.current}</h2>
-        </>
+    const changeAccount=(event)=>(
+        
+        setAccountName(event.target.value)
     )
+
+    const onChangee=(e)=>(
+        setAccountName(e.target.value)
+    )
+    return(
+        <div>
+            <input type='text' />
+            <button onClick={changeAccount}>Change it</button>
+            <p>Current account name: {accountName}</p>
+            <p>Previus account name: {prevName.current}</p>
+        </div>
+    )
+
 }
