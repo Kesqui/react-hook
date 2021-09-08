@@ -1,11 +1,10 @@
 import React, {useState,useRef} from 'react'
 
-const List = ({guestList, oDelete})=>(
-    guestList.map((item, index)=>(
+const List=({guestList,onDelete})=>(
+    guestList.map((item,index)=>(
         <>
-
-                <li>{item}</li>
-                <button onClick={oDelete(index)} >X</button>
+            <li>{item}</li>
+            <button onClick={onDelete(index)}>Remove guest</button>
         </>
     ))
 )
@@ -32,10 +31,10 @@ export default function Todolist(){
     }
 
     const deleteGuest=(index)=>()=>{
-        const newArray = guest.filter((_item, i) => i !== index)
-        setGuest(newArray)
+        const newGuestArray=guest.filter((_item,i)=> i !== index)
+
+        setGuest(newGuestArray)
     }
-    
 
     
     
@@ -51,7 +50,7 @@ export default function Todolist(){
 
             <h2>Guests</h2>
             <div>
-                <List guestList={guest} oDelete={deleteGuest}/>
+                <List guestList={guest} onDelete={deleteGuest}/>
                 
             </div>
 

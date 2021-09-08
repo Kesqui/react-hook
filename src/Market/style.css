@@ -1,0 +1,95 @@
+.title{
+    text-align: center;
+    border-radius: 50px;
+    width:91.5%;
+    padding:5rem;
+    border:8px solid rgb(131, 19, 15);
+    background-color: rgba(73, 11, 11, 0.651);
+    color: rgb(207, 179, 179);
+    display:flex;
+    flex-direction:column;
+    justify-content:center
+}
+
+.food-box{
+    display:flex;
+    padding:4px;
+    justify-content:center;
+    border-radius:50px;
+    width: 70%;
+    background-color: rgba(73, 11, 11, 0.651);
+    flex-direction:column;
+    justify-content: center;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 1px
+}
+.minibox{
+    background-color: white;
+    border-radius:50px;
+    padding:1rem
+
+}
+
+.cart{
+    position: absolute;
+    color: rgb(207, 179, 179);
+    top:33%;
+    left: 80%;
+    text-align: center;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: rgba(73, 11, 11, 0.651);
+    font-size: 20px;
+    border-radius: 50px;
+}
+
+.meal-box{
+    display:flex;
+    background-color: rgba(73, 11, 11, 0.651);
+    width:110px;
+    border-radius:50px;
+    padding:1rem;
+    font-size: 20px;
+    color:rgb(207, 179, 179);;
+
+}
+
+
+.button-origin{
+    color:rgb(207, 179, 179);
+    background-color: rgba(73, 11, 11, 0.651);
+    margin-left: 95%;
+    font-size: 20px;
+    margin-top: 1px;
+    top: 40%;
+    display:flex;
+    border-radius: 50px
+}
+
+.input-buy{
+    display: flex;
+    justify-content: flex-end;
+    text-align:left;
+    clear:right
+
+}
+
+.car-session{
+    display:flex;
+    padding:100px;
+    justify-content:center;
+    border-radius:50px;
+    width: 70%;
+    background-color: rgba(73, 11, 11, 0.651);
+    flex-direction:column;
+    justify-content: center;
+    position: absolute;
+    top: 190%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 1px
+}
