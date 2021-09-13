@@ -1,6 +1,12 @@
 import { replaceResultTransformer } from 'common-tags';
 import react, {useState,useEffect,useRef} from 'react'
 
+const List=({fillItem})=>(
+    fillItem.map(item=>(
+        <li>{`${item.key} ${item.No} ${item.ref}` }</li>
+    ))
+)
+
 export default function Food() {
     const [quanty, setQuanty] = useState({
         apple: {
@@ -19,92 +25,66 @@ export default function Food() {
             name: 'Pineapple',
             price: 8,
             ref: '123e3',
-            quant: 5
+            quanty: 5
         }
     })
 
-    const [add,setAdd] = useState(0)
-    const addEvent=(name)=>(e)=>{
+    const [quant,setQuant]=useState([])
+    const [cartItem,setCartItem]=useState([])
+
+    const handleChange=(e)=>{
+        setQuant((prev)=>({
+            ...prev,
+            [e.target.name]:e.target.value
+        }))
+    }
+
+    const handleCar=(e)=>{
         e.preventDefault();
-        
-            setAdd((prev)=>(
-                prev + 1
-            ))
-         
-        setQuanty((prev)=>{
-            const {quant,...prevEvent}= prev[name]
-
-                return{
-                    ...prev,
-                    [name]: {...prevEvent,
-                        quant:quant-1}
-                }
-
-        })
+        const cartArray= Object.keys(quant).map(key => ({key,No:quant[key], ref: quanty[key].ref}))
+        setCartItem(Object.values(cartArray))
     }
-    const clearAll=()=>(
-        setAdd(0)
-    )
-    const removeEvent=(name)=>()=>{
-        
-            setAdd((prev)=>prev -1)
-        
-            if(setQuanty<=quanty){
-                setQuanty((prevs)=>{
-                    const {quant,...rest}= prevs[name]
-                    return{
-                        ...prevs,
-                        [name]: {...rest, quant:quant+1}
-                    }
-                })
-            } 
-        
-    }
-    const [total,setTotal]=useState(0)
 
-    
-    
-    const arr = [1, 2, 3, 4];
-    const reducer = (a, b) => a + b;
-    console.log(arr.reduce(reducer))
-    
+
 
     return(
         <div>
-             <div>
-                <h1>FOOD MARKET</h1>
-                {Object.keys(quanty).map(i => ({...quanty[i], key:i})).map(j=>(
-                    <>
-                        <h4>{`${j.name}`}</h4>
-                        <p>Price: ${`${j.price}`}</p>
-                        <p>Ref: {`${j.ref}`}</p>
-                        <p>No:{`${j.quant}`}</p>
-                        
-                        <button onClick={addEvent(j.key)}>Add</button>
-                        <button onClick={removeEvent(j.key)}>Remove</button>
-                        <hr/>
-                    </>
-                ))
-            }
-                </div>
-            <div>
-               <h2>Car </h2>
-               <hr/>
-               <div>
-                    In-car:  {add}
-                    
-                </div>
+            <form onSubmit={handleCar}>
                 <div>
-                    
-                    Total:  {total}
-                </div>
+                    <h1>FOOD MARKET</h1>
+                    {Object.keys(quanty).map(i => ({...quanty[i], key:i})).map(j=>(
+                        <>
+                            <h4>{`${j.name}`}</h4>
+                            <p>Price: ${`${j.price}`}</p>
+                            <p>Ref: {`${j.ref}`}</p>
+                            <p>No:{`${j.quant}`}</p>
+                            <input type='number' onChange = {handleChange} value={quant[j.key]} name={j.key}/>
+                            <button >Add</button>
+                            <button >Remove</button>
+                            <hr/>
+                        </>
+                    ))
+                }
+                    </div>
+                <div>
+                <h2>Car </h2>
                 <hr/>
                 <div>
-                    <button >Go to pay</button>
-                    <button >See</button>
-                    <button onClick={clearAll}>Clear all</button>
+                        In-car:  {<List fillItem={cartItem}/>}
+                        
+                    </div>
+                    <div>
+                        
+                        Total:  {}
+                    </div>
+                    <hr/>
+                    <div>
+                        <button >Go to pay</button>
+                        <button >See</button>
+                        <button >Clear all</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
             
        

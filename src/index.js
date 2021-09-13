@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import  Show from  './Components/Show';
+import  Food from  './Components/Food';
 
-ReactDOM.render(<Show />,document.getElementById('root'));
+ReactDOM.render(<Food />,document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
