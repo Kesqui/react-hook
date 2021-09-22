@@ -1,15 +1,12 @@
-import React,{useState,useContext} from 'react'
-import { DataContext } from '../context/DataContext'
+import React from 'react'
 
-
-export function Pagina2 () {
-    const{name}=useContext(DataContext)
+export const Pagina2 = ({userFinal}) => {
     return (
         <div>
             <h1>Página 2</h1>
-            <p>{JSON.stringify(name)}</p>
+            <p>Nombre:{userFinal.nombre}</p>
+            <p>Edad:{userFinal.edad}</p>
             <hr/>
-
         </div>
     )
 }
