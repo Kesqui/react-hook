@@ -1,12 +1,16 @@
 import React from 'react'
-export const ButChangeData = ({setUserFinal,user}) => {
-    const handleClick=()=>{
-        console.log(user)
-        setUserFinal(user)
+import { useContext } from 'react'
+import { DataContext } from '../context/DataContext'
+
+export const ButChangeData = () => {
+    const {change,setShowUser,setChange,initial}=useContext(DataContext)
+    const handleSubmit=(e)=>{
+        setShowUser(change)
+
     }
     return (
         <div>
-            <button onClick={handleClick}>Change Data</button>
+            <button onClick={handleSubmit}>Change it</button>
         </div>
     )
 }
