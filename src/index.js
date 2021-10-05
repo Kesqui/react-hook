@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import  App from  './App';
+import RenderApp from './RenderApp';
 
-ReactDOM.render(<App />,document.getElementById('root'));
+
+ReactDOM.render(<RenderApp />,document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
